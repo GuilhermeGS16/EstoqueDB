@@ -1,0 +1,82 @@
+{
+    "Carregador Lenovo E14": {
+        "quantidade": 30,
+        "alerta": 2
+    },
+    "Suporte de monitor": {
+        "quantidade": 35,
+        "alerta": 2
+    },
+    "Teclado sem fio": {
+        "quantidade": 4,
+        "alerta": 2
+    },
+    "Teclado com fio": {
+        "quantidade": 0,
+        "alerta": 2
+    },
+    "Suporte de notebook": {
+        "quantidade": 2,
+        "alerta": 2
+    },
+    "Mouse com fio": {
+        "quantidade": 10,
+        "alerta": 2
+    },
+    "Kit mouse e teclado": {
+        "quantidade": 10,
+        "alerta": 2
+    },
+    "Fone": {
+        "quantidade": 10,
+        "alerta": 2
+    },
+    "Mochila": {
+        "quantidade": 25,
+        "alerta": 2
+    },
+    "Mouse sem fio": {
+        "quantidade": 45,
+        "alerta": 2
+    },
+    "Telefone Yealink": {
+        "quantidade": 80,
+        "alerta": 2
+    },
+    "Bateria 3V Litio": {
+        "quantidade": 3,
+        "alerta": 2
+    },
+    "Monitor 22 Pol": {
+        "quantidade": 0,
+        "alerta": 2
+    },
+    "Monitor 24 Pol": {
+        "quantidade": 0,
+        "alerta": 2
+    },
+    "Monitor 27 Pol": {
+        "quantidade": 1,
+        "alerta": 2
+    },
+    "Toner C8045 Black": {
+        "quantidade": 2,
+        "alerta": 2
+    },
+    "Toner C8045 Cyan": {
+        "quantidade": 1,
+        "alerta": 2
+    },
+    "Toner C8045 Magenta": {
+        "quantidade": 3,
+        "alerta": 2
+    },
+    "Toner C8045 Yellow": {
+        "quantidade": 3,
+        "alerta": 2
+    },
+    "Mem\u00c3\u00b3ria RAM DDR5 16GB": {
+        "quantidade": 2,
+        "alerta": 2
+    }
+}
