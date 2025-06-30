@@ -277,25 +277,31 @@ class AppEstoque(ctk.CTk):
         linha = ctk.CTkFrame(self.produtos_frame, fg_color=cor_fundo)
         linha.pack(pady=1, padx=10, fill="x")
 
-        ctk.CTkLabel(linha, text=produto, font=self.fonte_negrito, width=200, anchor="w").pack(side="left", padx=10)
+        ctk.CTkLabel(linha, text=produto, font=ctk.CTkFont(size=14), width=200, anchor="w").pack(side="left", padx=10)
 
-        ctk.CTkButton(
+        # Botão de remover
+        linha.btn_menos = ctk.CTkButton(
             linha, text="–", width=36, height=36, corner_radius=8,
             command=lambda p=produto: self.alterar(p, -1),
             font=ctk.CTkFont(family="Arial", size=18, weight="bold"),
             fg_color="#F96F5D", hover_color="#F67280", text_color="white"
-        ).pack(side="left", padx=5, pady=5)
+        )
+        linha.btn_menos.pack(side="left", padx=5, pady=5)
 
+        # Quantidade
         self.labels[produto] = ctk.CTkLabel(linha, text=str(qtd), width=40, font=self.fonte_negrito)
         self.labels[produto].pack(side="left")
 
-        ctk.CTkButton(
+        # Botão de adicionar
+        linha.btn_mais = ctk.CTkButton(
             linha, text="+", width=36, height=36, corner_radius=8,
             command=lambda p=produto: self.alterar(p, 1),
             font=ctk.CTkFont(family="Arial", size=18, weight="bold"),
             fg_color="#90BE6D", hover_color="#3DDC97", text_color="white"
-        ).pack(side="left", padx=5, pady=5)
+        )
+        linha.btn_mais.pack(side="left", padx=5, pady=5)
 
+        # Botão lixeira
         ctk.CTkButton(
             linha, image=self.icone_lixeira, text="", width=36, height=36, corner_radius=8,
             command=lambda p=produto, l=linha: self.remover_produto(p, l),
@@ -303,6 +309,7 @@ class AppEstoque(ctk.CTk):
         ).pack(side="left", padx=5, pady=5)
 
         return linha
+
 
     
     def remover_produto(self, produto, linha_widget):
@@ -520,7 +527,7 @@ class AppEstoque(ctk.CTk):
             ctk.set_appearance_mode("light")
             self.btn_toggle_theme.configure(
                 image=self.img_sun,
-                fg_color="#FFF7E7",           # cor clara para o modo claro
+                fg_color="#FFF7E7",
                 hover_color="#f0e7c0"
             )
         else:
@@ -528,7 +535,7 @@ class AppEstoque(ctk.CTk):
             ctk.set_appearance_mode("dark")
             self.btn_toggle_theme.configure(
                 image=self.img_moon,
-                fg_color="#383A55",           # sua cor escura personalizada
+                fg_color="#383A55",
                 hover_color="#2E3049"
             )
 
@@ -549,7 +556,14 @@ class AppEstoque(ctk.CTk):
             cor = self.get_cores_fundo(idx, qtd, alerta)
             linha.configure(fg_color=cor)
 
-
+            # Atualizar botões de + e –
+            if hasattr(linha, "btn_mais") and hasattr(linha, "btn_menos"):
+                if self.current_theme == "dark":
+                    linha.btn_mais.configure(fg_color="#90BE6D", hover_color="#3DDC97")
+                    linha.btn_menos.configure(fg_color="#F96F5D", hover_color="#F67280")
+                else:
+                    linha.btn_mais.configure(fg_color="#B9D8C2", hover_color="#A7C2AF")
+                    linha.btn_menos.configure(fg_color="#FB9F89", hover_color="#E2907C")
 
         self.cabecalho.configure(fg_color=self.get_cores_fundo(0))
 
@@ -626,7 +640,7 @@ class AppEstoque(ctk.CTk):
                 corpo += "\n"
             corpo += "Agradeço o atendimento.\n\nAtt,\nGuilherme Gonçalves Salomé"
 
-            destinatario = "terceirizada@empresa.com.br"
+            destinatario = "suprimentos@mrcopiadoras.com.br"
             assunto = "Solicitação de Toners para Impressoras"
             url = f"mailto:{destinatario}?subject={urllib.parse.quote(assunto)}&body={urllib.parse.quote(corpo)}"
             webbrowser.open(url)
@@ -637,7 +651,7 @@ class AppEstoque(ctk.CTk):
                     fg_color="#90BE6D", corner_radius=30).pack(pady=20) 
 
     def enviar_email_solicitacao(self, itens_solicitados):
-        destinatario = "handrikson.petzold@patrimar.com.br"  # <-- altere para o e-mail do responsável
+        destinatario = "handrikson.petzold@patrimar.com.br"  
         assunto = "Solicitação de Requisição de Materiais"
         
         corpo = "Olá,tudo bem?\n\nSolicito os seguintes itens para a requisição de TI:\n\n"

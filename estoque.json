@@ -64,7 +64,7 @@
         "alerta": 2
     },
     "Toner C8045 Cyan": {
-        "quantidade": 1,
+        "quantidade": 0,
         "alerta": 2
     },
     "Toner C8045 Magenta": {
@@ -75,17 +75,17 @@
         "quantidade": 3,
         "alerta": 2
     },
-    "Memória RAM DDR5 16GB": {
+    "Mem\u00c3\u00b3ria RAM DDR5 16GB": {
         "quantidade": 2,
         "alerta": 2
     },
     "impressoras": {
         "Toner C8045": [
-            "SN123456",
-            "SN789012",
-            "SN345678",
-            "SN901234",
-            "SN567890"
+            "8TB604672",
+            "6TB440773",
+            "8TB623422",
+            "8TB567604",
+            "8TB635165"
         ]
     }
 }

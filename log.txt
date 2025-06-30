@@ -265,3 +265,4 @@
 [28/06/2025 08:49:36] (NORMAL) Teclado com fio: +1  | usuário: guilh
 [28/06/2025 08:49:36] (NORMAL) Teclado com fio: -1  | usuário: guilh
 [28/06/2025 08:49:36] (NORMAL) Teclado com fio: -1  | usuário: guilh
+[30/06/2025 12:20:20] (NORMAL) Toner C8045 Cyan: -1  | usuário: guilherme.salome
