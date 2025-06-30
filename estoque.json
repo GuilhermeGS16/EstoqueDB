@@ -12,11 +12,11 @@
         "alerta": 2
     },
     "Teclado com fio": {
-        "quantidade": 0,
+        "quantidade": 1,
         "alerta": 2
     },
     "Suporte de notebook": {
-        "quantidade": 2,
+        "quantidade": 0,
         "alerta": 2
     },
     "Mouse com fio": {
@@ -75,8 +75,17 @@
         "quantidade": 3,
         "alerta": 2
     },
-    "Mem\u00c3\u00b3ria RAM DDR5 16GB": {
+    "Memória RAM DDR5 16GB": {
         "quantidade": 2,
         "alerta": 2
+    },
+    "impressoras": {
+        "Toner C8045": [
+            "SN123456",
+            "SN789012",
+            "SN345678",
+            "SN901234",
+            "SN567890"
+        ]
     }
 }

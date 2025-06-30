@@ -10,6 +10,7 @@ import urllib.parse
 import unicodedata
 import time
 import getpass
+import random
 
 ARQUIVO_ESTOQUE = "estoque.json"
 ARQUIVO_LOG = "log.txt"
@@ -42,8 +43,9 @@ class AppEstoque(ctk.CTk):
         
         self.img_sun = ImageTk.PhotoImage(Image.open("assets/sun.png").resize((20, 20), Image.LANCZOS))
         self.img_moon = ImageTk.PhotoImage(Image.open("assets/moon.png").resize((20, 20), Image.LANCZOS))
-        self.icon_filter_light = ctk.CTkImage(Image.open("assets/filterblack.png").resize((20, 20)))
-        self.icon_filter_dark = ctk.CTkImage(Image.open("assets/filter.png").resize((20, 20))) 
+        self.icon_filtro_black = ctk.CTkImage(Image.open("assets/filterblack.png"), size=(20, 20))
+        self.icon_filtro_white = ctk.CTkImage(Image.open("assets/filterwhite.png"), size=(20, 20))
+
         self.title("Controle de Estoque TI")
         self.attributes("-fullscreen", True)
         self.bind("<Escape>", lambda e: self.attributes("-fullscreen", False))
@@ -66,6 +68,40 @@ class AppEstoque(ctk.CTk):
         self.lift()
         self.attributes('-topmost', True)
         self.after(100, lambda: self.attributes('-topmost', False))
+
+    def distribuir_toners(self, itens_solicitados):
+        impressoras = self.estoque.get("impressoras", {})
+        distribuido = {}  # {serial: [toner1, toner2]}
+        
+        usados = set()
+
+        for produto, qtd in itens_solicitados.items():
+            modelo = None
+            for grupo, lista in impressoras.items():
+                if grupo.lower() in produto.lower():
+                    modelo = grupo
+                    break
+
+            if not modelo:
+                continue
+
+            disponiveis = impressoras[modelo].copy()
+            random.shuffle(disponiveis)
+
+            for _ in range(qtd):
+                for sn in disponiveis:
+                    chave = (sn, produto)
+                    if chave not in usados:
+                        usados.add(chave)
+                        if sn not in distribuido:
+                            distribuido[sn] = []
+                        distribuido[sn].append(produto)
+                        break
+                else:
+                    raise Exception(f"Sem impressora disponível para '{produto}'")
+
+        return distribuido
+
         
     def aplicar_cor_por_tema(self, cor_dark, cor_light):
         return cor_dark if self.current_theme == "dark" else cor_light
@@ -101,6 +137,7 @@ class AppEstoque(ctk.CTk):
             height=36,
             corner_radius=18,
             fg_color="#383A55",  # cor inicial para modo dark
+            hover_color="#2E3049",
             image=self.img_moon,
             command=self.toggle_theme
         )  
@@ -123,15 +160,16 @@ class AppEstoque(ctk.CTk):
         self.filtro_ativo = "A-Z"  # valor inicial
 
         self.btn_filtro = ctk.CTkButton(
-            search_frame,
-            image=self.icon_filter_dark,
-            text="",
-            width=40,
-            height=36,
-            fg_color="#444" if self.current_theme == "dark" else "#ddd",
-            hover_color="#666" if self.current_theme == "dark" else "#bbb",
-            command=self.abrir_menu_filtro
-        )
+        search_frame,
+        image=self.icon_filtro_black if self.current_theme == "light" else self.icon_filtro_white,
+        text="",
+        width=40,
+        height=36,
+        fg_color=self.aplicar_cor_por_tema("#2c2c2c", "#e0e0e0"),  # invertido aqui
+        hover_color=self.aplicar_cor_por_tema("#1e1e1e", "#d0d0d0"),  # invertido aqui
+        command=self.abrir_menu_filtro
+    )
+
         self.btn_filtro.pack(side="left", padx=5)
         # Área de produtos
 
@@ -148,26 +186,25 @@ class AppEstoque(ctk.CTk):
 
         # Linhas de produtos
         self.linhas_produtos.clear()
-        for idx, produto in enumerate(self.estoque):
+        produtos_visiveis = [p for p in self.estoque if p != "impressoras"]
+        for idx, produto in enumerate(produtos_visiveis):
             linha = self.criar_linha_produto(produto, idx)
             self.linhas_produtos.append(linha)
+
     
     def abrir_menu_filtro(self):
-        menu = tk.Menu(self, tearoff=0)
+        menu = tk.Menu(self, tearoff=0, bg=self.aplicar_cor_por_tema("#FFF7E7", "#212235"), 
+                    fg=self.aplicar_cor_por_tema("#000000", "#FFFFFF"),
+                    activebackground=self.aplicar_cor_por_tema("#f0e7c0", "#2e2f4a"),
+                    activeforeground=self.aplicar_cor_por_tema("#000000", "#ffffff"))
+        
         opcoes = ["A-Z", "Z-A", "Qtd ↑", "Qtd ↓"]
         for opcao in opcoes:
             menu.add_command(label=opcao, command=lambda c=opcao: self.ordenar(c))
+        
         x = self.btn_filtro.winfo_rootx()
         y = self.btn_filtro.winfo_rooty() + self.btn_filtro.winfo_height()
         menu.tk_popup(x, y)
-
-    def filtrar_produtos(self):
-        termo = self.entry_pesquisa.get().lower()
-        for linha, produto in zip(self.linhas_produtos, self.estoque):
-            if termo in produto.lower():
-                linha.pack(pady=1, padx=10, fill="x")
-            else:
-                linha.pack_forget()
 
     def ordenar(self, criterio):
         # Reordena stocks e widgets
@@ -188,6 +225,20 @@ class AppEstoque(ctk.CTk):
         self.linhas_produtos = [linha for (_, linha) in pares]
         self.estoque = {nome:qtd for ((nome,qtd), _) in pares}
 
+    def get_cor_alerta(self, tipo):
+        if self.current_theme == "dark":
+            cores = {
+                "alerta": "#886d00",
+                "critico": "#581F1F"
+            }
+        else:
+            cores = {
+                "alerta": "#f9dc7e",
+                "critico": "#d35c5c"
+            }
+        return cores.get(tipo)
+
+   
     def get_cores_fundo_dark(self, index):
         # Cores para modo dark
         return "#2c2c2c" if index % 2 == 0 else "#242424"    
@@ -197,26 +248,31 @@ class AppEstoque(ctk.CTk):
         return "#f9f9f9" if index % 2 == 0 else "#eaeaea"
 
     def get_cores_fundo(self, index, qtd=None, alerta=None):
-        # Decide cor base conforme o tema
-        if self.current_theme == "dark":
-            base = self.get_cores_fundo_dark(index)
-        else:
-            base = self.get_cores_fundo_light(index)
-
-        # Alerta (vermelho ou amarelo)
         if qtd is not None and alerta is not None:
             if qtd <= alerta // 2:
-                return "#ffcccc"  # vermelho
+                return self.get_cor_alerta("critico")
             elif qtd <= alerta:
-                return "#fff4d2"  # amarelo
-        return base
+                return self.get_cor_alerta("alerta")
+
+        if self.current_theme == "dark":
+            return "#2c2c2c" if index % 2 == 0 else "#242424"
+        else:
+            return "#e0e0e0" if index % 2 == 0 else "#f5f5f5"
+
+
+
 
     def criar_linha_produto(self, produto, index):
         dados = self.estoque[produto]
         qtd = dados["quantidade"]
         alerta = dados["alerta"]
 
-        cor_fundo = self.get_cores_fundo(index, qtd, alerta)
+        if qtd <= alerta // 2:
+            cor_fundo = self.get_cor_alerta("critico")
+        elif qtd <= alerta:
+            cor_fundo = self.get_cor_alerta("alerta")
+        else:
+            cor_fundo = self.get_cores_fundo(index)
 
         linha = ctk.CTkFrame(self.produtos_frame, fg_color=cor_fundo)
         linha.pack(pady=1, padx=10, fill="x")
@@ -249,8 +305,6 @@ class AppEstoque(ctk.CTk):
         return linha
 
     
-
-
     def remover_produto(self, produto, linha_widget):
         resposta = messagebox.askyesno("Confirmar Remoção", f"Tem certeza que deseja remover o produto '{produto}'?")
         if resposta:
@@ -278,11 +332,12 @@ class AppEstoque(ctk.CTk):
         linha = self.labels[produto].master  # pega o frame pai do label
 
         if nova_qtd <= alerta // 2:
-            cor_fundo = "#ffcccc"  # vermelho
+            cor_fundo = self.get_cor_alerta("critico")
         elif nova_qtd <= alerta:
-            cor_fundo = "#fff4d2"  # amarelo
+            cor_fundo = self.get_cor_alerta("alerta")
         else:
-            cor_fundo = self.get_cores_fundo(index)
+            cor_fundo = self.get_cores_fundo(index, nova_qtd, alerta)
+
 
         linha.configure(fg_color=cor_fundo)
 
@@ -463,17 +518,38 @@ class AppEstoque(ctk.CTk):
         if self.current_theme == "dark":
             self.current_theme = "light"
             ctk.set_appearance_mode("light")
-            self.btn_toggle_theme.configure(image=self.img_sun, fg_color="#FFF7E7")
+            self.btn_toggle_theme.configure(
+                image=self.img_sun,
+                fg_color="#FFF7E7",           # cor clara para o modo claro
+                hover_color="#f0e7c0"
+            )
         else:
             self.current_theme = "dark"
             ctk.set_appearance_mode("dark")
-            self.btn_toggle_theme.configure(image=self.img_moon, fg_color="#212235")
+            self.btn_toggle_theme.configure(
+                image=self.img_moon,
+                fg_color="#383A55",           # sua cor escura personalizada
+                hover_color="#2E3049"
+            )
 
-        # Atualizar cores das linhas
-        for idx, linha in enumerate(self.linhas_produtos):
-            produto = list(self.estoque.keys())[idx]
+        # Atualizar botão de filtro
+        self.btn_filtro.configure(
+            fg_color=self.aplicar_cor_por_tema("#2c2c2c", "#e0e0e0"),
+            hover_color=self.aplicar_cor_por_tema("#1e1e1e", "#d0d0d0"),
+            image=self.icon_filtro_black if self.current_theme == "light" else self.icon_filtro_white
+        )
+
+        # Atualizar linhas da lista
+        visiveis = [p for p in self.estoque if p != "impressoras"]
+        for idx, produto in enumerate(visiveis):
+            linha = self.linhas_produtos[idx]
             dados = self.estoque[produto]
-            linha.configure(fg_color=self.get_cores_fundo(idx, dados["quantidade"], dados["alerta"]))
+            qtd = dados["quantidade"]
+            alerta = dados["alerta"]
+            cor = self.get_cores_fundo(idx, qtd, alerta)
+            linha.configure(fg_color=cor)
+
+
 
         self.cabecalho.configure(fg_color=self.get_cores_fundo(0))
 
@@ -496,6 +572,11 @@ class AppEstoque(ctk.CTk):
             entry.pack(side="left")
             entradas[produto] = entry
 
+        ctk.CTkButton(
+            janela, text="Solicitar Toners (Terceirizada)", command=lambda: confirmar_toners(entradas),
+            fg_color="#F04C60", corner_radius=30
+        ).pack(pady=10)
+
         def confirmar_envio():
             itens_solicitados = {}
             for produto, entrada in entradas.items():
@@ -514,6 +595,43 @@ class AppEstoque(ctk.CTk):
 
             self.enviar_email_solicitacao(itens_solicitados)
             janela.destroy()
+        
+        def confirmar_toners(entradas):
+            itens = {}
+            for produto, entrada in entradas.items():
+                valor = entrada.get().strip()
+                if valor:
+                    try:
+                        qtd = int(valor)
+                        if qtd > 0 and "Toner" in produto:
+                            itens[produto] = qtd
+                    except ValueError:
+                        continue
+
+            if not itens:
+                messagebox.showwarning("Aviso", "Nenhum toner foi solicitado.")
+                return
+
+            try:
+                distribuido = self.distribuir_toners(itens)
+            except Exception as e:
+                messagebox.showerror("Erro", str(e))
+                return
+
+            corpo = "Olá,\n\nSolicito os seguintes toners:\n\n"
+            for sn, toners in distribuido.items():
+                corpo += f"N/S {sn}:\n"
+                for toner in toners:
+                    corpo += f" - {toner}\n"
+                corpo += "\n"
+            corpo += "Agradeço o atendimento.\n\nAtt,\nGuilherme Gonçalves Salomé"
+
+            destinatario = "terceirizada@empresa.com.br"
+            assunto = "Solicitação de Toners para Impressoras"
+            url = f"mailto:{destinatario}?subject={urllib.parse.quote(assunto)}&body={urllib.parse.quote(corpo)}"
+            webbrowser.open(url)
+            janela.destroy()
+
 
         ctk.CTkButton(janela, text="Confirmar Solicitação", command=confirmar_envio,
                     fg_color="#90BE6D", corner_radius=30).pack(pady=20) 
