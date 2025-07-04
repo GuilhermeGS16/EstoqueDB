@@ -1,63 +1,95 @@
 {
+    "Bateria 3V Litio": {
+        "quantidade": 5,
+        "alerta": 5
+    },
+    "Carregador Dell Inspirion": {
+        "quantidade": 2,
+        "alerta": 1
+    },
     "Carregador Lenovo E14": {
-        "quantidade": 30,
+        "quantidade": 0,
         "alerta": 2
     },
-    "Suporte de monitor": {
-        "quantidade": 35,
+    "Fone": {
+        "quantidade": 10,
+        "alerta": 10
+    },
+    "Kit mouse e teclado": {
+        "quantidade": 10,
+        "alerta": 10
+    },
+    "Memoria RAM DDR5 16GB": {
+        "quantidade": 5,
         "alerta": 2
+    },
+    "Mochila": {
+        "quantidade": 12,
+        "alerta": 10
+    },
+    "Monitor 22 Pol": {
+        "quantidade": 0,
+        "alerta": 1
+    },
+    "Monitor 24 Pol": {
+        "quantidade": 0,
+        "alerta": 1
+    },
+    "Mouse com fio": {
+        "quantidade": 10,
+        "alerta": 6
+    },
+    "Mouse sem fio": {
+        "quantidade": 45,
+        "alerta": 4
+    },
+    "Suporte de monitor": {
+        "quantidade": 0,
+        "alerta": 8
+    },
+    "Suporte de notebook": {
+        "quantidade": 0,
+        "alerta": 6
+    },
+    "Teclado com fio": {
+        "quantidade": 1,
+        "alerta": 4
     },
     "Teclado sem fio": {
         "quantidade": 4,
         "alerta": 2
     },
-    "Teclado com fio": {
-        "quantidade": 1,
-        "alerta": 2
-    },
-    "Suporte de notebook": {
-        "quantidade": 0,
-        "alerta": 2
-    },
-    "Mouse com fio": {
-        "quantidade": 10,
-        "alerta": 2
-    },
-    "Kit mouse e teclado": {
-        "quantidade": 10,
-        "alerta": 2
-    },
-    "Fone": {
-        "quantidade": 10,
-        "alerta": 2
-    },
-    "Mochila": {
-        "quantidade": 25,
-        "alerta": 2
-    },
-    "Mouse sem fio": {
-        "quantidade": 45,
-        "alerta": 2
-    },
     "Telefone Yealink": {
         "quantidade": 80,
-        "alerta": 2
+        "alerta": 10
     },
-    "Bateria 3V Litio": {
+    "Toner 131A Black": {
         "quantidade": 3,
-        "alerta": 2
+        "alerta": 1
     },
-    "Monitor 22 Pol": {
-        "quantidade": 0,
-        "alerta": 2
+    "Toner 131A Cyan": {
+        "quantidade": 2,
+        "alerta": 1
     },
-    "Monitor 24 Pol": {
-        "quantidade": 0,
-        "alerta": 2
-    },
-    "Monitor 27 Pol": {
+    "Toner 131A Yellow": {
         "quantidade": 1,
-        "alerta": 2
+        "alerta": 1
+    },
+    "Toner C405 Black": {
+        "quantidade": 0,
+        "alerta": 1
+    },
+    "Toner C405 Cyan": {
+        "quantidade": 1,
+        "alerta": 1
+    },
+    "Toner C405 Magenta": {
+        "quantidade": 2,
+        "alerta": 1
+    },
+    "Toner C405 Yellow": {
+        "quantidade": 2,
+        "alerta": 1
     },
     "Toner C8045 Black": {
         "quantidade": 2,
@@ -75,17 +107,44 @@
         "quantidade": 3,
         "alerta": 2
     },
-    "Mem\u00c3\u00b3ria RAM DDR5 16GB": {
-        "quantidade": 2,
-        "alerta": 2
+    "Toner TK-5232 Cyan": {
+        "quantidade": 1,
+        "alerta": 1
     },
-    "impressoras": {
-        "Toner C8045": [
-            "8TB604672",
-            "6TB440773",
-            "8TB623422",
-            "8TB567604",
-            "8TB635165"
-        ]
+    "Toner TK-5232 Magenta": {
+        "quantidade": 2,
+        "alerta": 1
+    },
+    "Toner TK-5232 Yellow": {
+        "quantidade": 1,
+        "alerta": 1
+    },
+    "Toner TK-5242 Black": {
+        "quantidade": 1,
+        "alerta": 1
+    },
+    "Toner TK-5242 Cyan": {
+        "quantidade": 1,
+        "alerta": 1
+    },
+    "Toner TK-5242 Magenta": {
+        "quantidade": 1,
+        "alerta": 1
+    },
+    "Toner TK-5242 Yellow": {
+        "quantidade": 1,
+        "alerta": 1
+    },
+    "Toner TK-5442 Black": {
+        "quantidade": 2,
+        "alerta": 1
+    },
+    "Toner TK-5442 Cyan": {
+        "quantidade": 2,
+        "alerta": 1
+    },
+    "Toner TK-5442 Magenta": {
+        "quantidade": 2,
+        "alerta": 1
     }
 }

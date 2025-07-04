@@ -1,268 +1,39 @@
-[27/06/2025 12:11:46] (NORMAL) Carregador Lenovo E14: +1
-[27/06/2025 12:11:47] (NORMAL) Carregador Lenovo E14: -1
-[27/06/2025 12:11:47] (NORMAL) Carregador Lenovo E14: -1
-[27/06/2025 12:11:49] (NORMAL) Teclado sem fio: -1
-[27/06/2025 12:11:49] (NORMAL) Teclado sem fio: -1
-[27/06/2025 12:11:49] (NORMAL) Teclado sem fio: -1
-[27/06/2025 12:11:49] (NORMAL) Teclado sem fio: -1
-[27/06/2025 12:11:49] (NORMAL) Teclado sem fio: -1
-[27/06/2025 12:11:49] (NORMAL) Teclado sem fio: -1
-[27/06/2025 13:36:57] (RENOMEADO PARA Telefone Yealink) Telefone Yealin: +0
-[27/06/2025 16:51:24] (NOVO) Memória RAM DDR5 16 GB: +2
-[27/06/2025 16:51:55] (RENOMEADO PARA Memória RAM DDR5 16GB) Memória RAM DDR5 16 GB: +0
-[27/06/2025 17:34:29] (NORMAL) Suporte de monitor: -1  | usuário: guilherme.salome
-[27/06/2025 17:34:29] (NORMAL) Suporte de monitor: -1  | usuário: guilherme.salome
-[27/06/2025 17:35:53] (ADMIN) Carregador Lenovo E14: -60  | usuário: guilherme.salome
-[27/06/2025 18:18:57] (NOVO) Memória RAM PC DDR5 16GB: +2  | usuário: guilherme.salome
-[27/06/2025 18:23:06] (REMOVIDO) Memória RAM PC DDR5 16GB: +0  | usuário: guilherme.salome
-[27/06/2025 18:23:23] (NOVO) ge: +12  | usuário: guilherme.salome
-[27/06/2025 18:24:24] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:24:25] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:24:26] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:24:26] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:24:26] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:24:26] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:24:27] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:24:27] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:24:27] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:24:28] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:24:29] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:24:30] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:24:31] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:24:31] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:24:31] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:24:31] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:24:31] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:24:32] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:24:32] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:24:32] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:24:32] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:24:33] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:24:33] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:24:33] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:24:33] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:24:33] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:24:34] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:24:34] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:24:34] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:24:35] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:24:36] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:24:36] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:26:00] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:26:01] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:26:01] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:26:24] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:26:25] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:26:26] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:26:26] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:26:27] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:26:27] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:26:28] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:26:28] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:28:16] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:28:22] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:28:22] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:28:57] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:28:58] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:28:58] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:28:58] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:28:58] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:28:58] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:28:58] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:28:58] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:28:58] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:28:59] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:28:59] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:28:59] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:28:59] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:28:59] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:28:59] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:28:59] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:28:59] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:28:59] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:00] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:00] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:00] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:00] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:00] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:00] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:00] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:00] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:00] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:01] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:01] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:01] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:01] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:01] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:01] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:01] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:01] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:01] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:02] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:02] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:02] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:02] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:02] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:02] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:02] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:02] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:02] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:02] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:20] (NOVO) hth: +10  | usuário: guilherme.salome
-[27/06/2025 18:29:27] (NORMAL) hth: -1  | usuário: guilherme.salome
-[27/06/2025 18:29:27] (NORMAL) hth: -1  | usuário: guilherme.salome
-[27/06/2025 18:29:28] (NORMAL) hth: -1  | usuário: guilherme.salome
-[27/06/2025 18:29:28] (NORMAL) hth: -1  | usuário: guilherme.salome
-[27/06/2025 18:29:28] (NORMAL) hth: -1  | usuário: guilherme.salome
-[27/06/2025 18:29:37] (NORMAL) hth: -1  | usuário: guilherme.salome
-[27/06/2025 18:29:43] (NORMAL) hth: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:43] (NORMAL) hth: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:51] (NORMAL) hth: -1  | usuário: guilherme.salome
-[27/06/2025 18:29:57] (NORMAL) ge: +1  | usuário: guilherme.salome
-[27/06/2025 18:29:58] (NORMAL) ge: -1  | usuário: guilherme.salome
-[27/06/2025 18:30:04] (NORMAL) hth: +1  | usuário: guilherme.salome
-[27/06/2025 18:30:05] (NORMAL) hth: +1  | usuário: guilherme.salome
-[27/06/2025 18:31:31] (NORMAL) hth: -1  | usuário: guilherme.salome
-[27/06/2025 18:31:34] (NORMAL) hth: -1  | usuário: guilherme.salome
-[27/06/2025 18:31:39] (NORMAL) hth: +1  | usuário: guilherme.salome
-[27/06/2025 18:31:45] (NORMAL) hth: -1  | usuário: guilherme.salome
-[27/06/2025 18:34:31] (NORMAL) hth: +1  | usuário: guilherme.salome
-[27/06/2025 18:36:52] (NORMAL) hth: -1  | usuário: guilherme.salome
-[27/06/2025 18:36:58] (NORMAL) hth: +1  | usuário: guilherme.salome
-[27/06/2025 18:45:49] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
-[27/06/2025 18:45:51] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
-[27/06/2025 18:45:53] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
-[27/06/2025 18:45:53] (NORMAL) Bateria 3V Litio: -1  | usuário: guilherme.salome
-[27/06/2025 18:45:59] (NORMAL) Bateria 3V Litio: -1  | usuário: guilherme.salome
-[27/06/2025 18:46:39] (NORMAL) Bateria 3V Litio: -1  | usuário: guilherme.salome
-[27/06/2025 18:46:41] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
-[27/06/2025 18:46:42] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
-[27/06/2025 18:46:42] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
-[27/06/2025 18:46:43] (NORMAL) Bateria 3V Litio: -1  | usuário: guilherme.salome
-[27/06/2025 18:46:43] (NORMAL) Bateria 3V Litio: -1  | usuário: guilherme.salome
-[27/06/2025 18:46:43] (NORMAL) Bateria 3V Litio: -1  | usuário: guilherme.salome
-[27/06/2025 18:46:44] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
-[27/06/2025 18:46:44] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
-[27/06/2025 18:46:45] (NORMAL) Bateria 3V Litio: -1  | usuário: guilherme.salome
-[27/06/2025 18:46:45] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
-[27/06/2025 18:46:46] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
-[27/06/2025 18:47:00] (NORMAL) Teclado sem fio: +1  | usuário: guilherme.salome
-[27/06/2025 18:47:08] (NORMAL) Teclado com fio: -1  | usuário: guilherme.salome
-[27/06/2025 18:47:08] (NORMAL) Teclado com fio: -1  | usuário: guilherme.salome
-[27/06/2025 18:47:08] (NORMAL) Teclado com fio: -1  | usuário: guilherme.salome
-[27/06/2025 18:47:09] (NORMAL) Teclado com fio: -1  | usuário: guilherme.salome
-[27/06/2025 18:47:09] (NORMAL) Teclado com fio: -1  | usuário: guilherme.salome
-[27/06/2025 18:47:09] (NORMAL) Teclado com fio: -1  | usuário: guilherme.salome
-[27/06/2025 18:47:09] (NORMAL) Teclado com fio: -1  | usuário: guilherme.salome
-[27/06/2025 18:47:09] (NORMAL) Teclado com fio: -1  | usuário: guilherme.salome
-[27/06/2025 18:47:09] (NORMAL) Teclado com fio: -1  | usuário: guilherme.salome
-[27/06/2025 18:47:10] (NORMAL) Teclado com fio: -1  | usuário: guilherme.salome
-[27/06/2025 18:49:00] (NORMAL) Teclado sem fio: +1  | usuário: guilherme.salome
-[27/06/2025 18:49:02] (NORMAL) Teclado sem fio: -1  | usuário: guilherme.salome
-[27/06/2025 18:49:03] (NORMAL) Teclado sem fio: -1  | usuário: guilherme.salome
-[27/06/2025 18:49:04] (NORMAL) Teclado sem fio: +1  | usuário: guilherme.salome
-[27/06/2025 18:49:04] (NORMAL) Teclado sem fio: +1  | usuário: guilherme.salome
-[27/06/2025 18:49:05] (NORMAL) Teclado sem fio: +1  | usuário: guilherme.salome
-[27/06/2025 18:49:06] (NORMAL) Teclado sem fio: +1  | usuário: guilherme.salome
-[27/06/2025 18:49:06] (NORMAL) Teclado sem fio: -1  | usuário: guilherme.salome
-[27/06/2025 18:49:07] (NORMAL) Teclado sem fio: -1  | usuário: guilherme.salome
-[27/06/2025 18:49:07] (NORMAL) Teclado sem fio: -1  | usuário: guilherme.salome
-[27/06/2025 18:49:08] (NORMAL) Teclado sem fio: -1  | usuário: guilherme.salome
-[27/06/2025 18:49:13] (NORMAL) Teclado sem fio: +1  | usuário: guilherme.salome
-[27/06/2025 18:49:15] (NORMAL) Teclado sem fio: -1  | usuário: guilherme.salome
-[27/06/2025 18:49:17] (NORMAL) Teclado sem fio: +1  | usuário: guilherme.salome
-[27/06/2025 18:49:17] (NORMAL) Teclado sem fio: -1  | usuário: guilherme.salome
-[27/06/2025 18:49:18] (NORMAL) Teclado sem fio: +1  | usuário: guilherme.salome
-[27/06/2025 18:50:40] (NORMAL) Suporte de notebook: -1  | usuário: guilherme.salome
-[27/06/2025 18:50:41] (NORMAL) Suporte de notebook: +1  | usuário: guilherme.salome
-[27/06/2025 18:50:42] (NORMAL) Suporte de notebook: -1  | usuário: guilherme.salome
-[27/06/2025 18:50:42] (NORMAL) Suporte de notebook: -1  | usuário: guilherme.salome
-[27/06/2025 18:50:42] (NORMAL) Suporte de notebook: -1  | usuário: guilherme.salome
-[27/06/2025 18:50:43] (NORMAL) Suporte de notebook: -1  | usuário: guilherme.salome
-[27/06/2025 18:50:43] (NORMAL) Suporte de notebook: -1  | usuário: guilherme.salome
-[27/06/2025 18:50:43] (NORMAL) Suporte de notebook: -1  | usuário: guilherme.salome
-[27/06/2025 18:50:43] (NORMAL) Suporte de notebook: -1  | usuário: guilherme.salome
-[27/06/2025 18:50:44] (NORMAL) Suporte de notebook: -1  | usuário: guilherme.salome
-[27/06/2025 18:59:48] (NORMAL) Teclado sem fio: +1  | usuário: guilherme.salome
-[27/06/2025 18:59:48] (NORMAL) Teclado sem fio: -1  | usuário: guilherme.salome
-[27/06/2025 18:59:49] (NORMAL) Teclado sem fio: +1  | usuário: guilherme.salome
-[27/06/2025 18:59:49] (NORMAL) Teclado sem fio: +1  | usuário: guilherme.salome
-[27/06/2025 18:59:49] (NORMAL) Teclado sem fio: +1  | usuário: guilherme.salome
-[27/06/2025 18:59:50] (NORMAL) Teclado sem fio: -1  | usuário: guilherme.salome
-[27/06/2025 18:59:50] (NORMAL) Teclado sem fio: -1  | usuário: guilherme.salome
-[27/06/2025 18:59:51] (NORMAL) Teclado sem fio: +1  | usuário: guilherme.salome
-[27/06/2025 18:59:51] (NORMAL) Teclado sem fio: +1  | usuário: guilherme.salome
-[27/06/2025 22:33:22] (NORMAL) Teclado com fio: +1  | usuário: guilh
-[27/06/2025 22:33:22] (NORMAL) Teclado com fio: +1  | usuário: guilh
-[27/06/2025 22:33:23] (NORMAL) Teclado com fio: -1  | usuário: guilh
-[27/06/2025 22:33:25] (NORMAL) Teclado com fio: +1  | usuário: guilh
-[27/06/2025 22:33:27] (NORMAL) Teclado com fio: -1  | usuário: guilh
-[27/06/2025 22:35:39] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[27/06/2025 22:36:12] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[27/06/2025 22:36:12] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[27/06/2025 22:36:12] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[27/06/2025 22:36:13] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[27/06/2025 22:36:13] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[27/06/2025 22:36:13] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[27/06/2025 22:36:13] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[27/06/2025 22:36:14] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[27/06/2025 22:36:15] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[27/06/2025 22:36:16] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[27/06/2025 22:36:16] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[27/06/2025 22:36:19] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[27/06/2025 22:36:19] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[27/06/2025 22:36:20] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[27/06/2025 22:36:23] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[27/06/2025 22:36:23] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[27/06/2025 22:36:24] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[27/06/2025 22:36:25] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[28/06/2025 08:40:01] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[28/06/2025 08:40:04] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[28/06/2025 08:40:04] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[28/06/2025 08:40:05] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[28/06/2025 08:40:05] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[28/06/2025 08:40:05] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[28/06/2025 08:40:06] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[28/06/2025 08:40:06] (NORMAL) Teclado com fio: +1  | usuário: guilh
-[28/06/2025 08:40:06] (NORMAL) Teclado com fio: +1  | usuário: guilh
-[28/06/2025 08:40:07] (NORMAL) Teclado com fio: -1  | usuário: guilh
-[28/06/2025 08:40:07] (NORMAL) Teclado com fio: -1  | usuário: guilh
-[28/06/2025 08:43:11] (NORMAL) Teclado com fio: +1  | usuário: guilh
-[28/06/2025 08:43:16] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[28/06/2025 08:43:21] (NORMAL) Teclado com fio: -1  | usuário: guilh
-[28/06/2025 08:43:24] (NORMAL) Teclado com fio: +1  | usuário: guilh
-[28/06/2025 08:45:16] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[28/06/2025 08:46:20] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[28/06/2025 08:46:21] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[28/06/2025 08:46:21] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[28/06/2025 08:46:22] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[28/06/2025 08:46:22] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[28/06/2025 08:46:23] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[28/06/2025 08:46:25] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[28/06/2025 08:46:26] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[28/06/2025 08:46:26] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[28/06/2025 08:46:27] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[28/06/2025 08:46:27] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[28/06/2025 08:46:28] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[28/06/2025 08:46:28] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[28/06/2025 08:46:29] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[28/06/2025 08:46:29] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[28/06/2025 08:46:29] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[28/06/2025 08:46:29] (NORMAL) Suporte de notebook: +1  | usuário: guilh
-[28/06/2025 08:46:30] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[28/06/2025 08:46:30] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[28/06/2025 08:46:30] (NORMAL) Suporte de notebook: -1  | usuário: guilh
-[28/06/2025 08:49:30] (NORMAL) Teclado com fio: -1  | usuário: guilh
-[28/06/2025 08:49:31] (NORMAL) Teclado com fio: +1  | usuário: guilh
-[28/06/2025 08:49:31] (NORMAL) Teclado com fio: -1  | usuário: guilh
-[28/06/2025 08:49:31] (NORMAL) Teclado com fio: +1  | usuário: guilh
-[28/06/2025 08:49:34] (NORMAL) Teclado com fio: -1  | usuário: guilh
-[28/06/2025 08:49:34] (NORMAL) Teclado com fio: +1  | usuário: guilh
-[28/06/2025 08:49:35] (NORMAL) Teclado com fio: +1  | usuário: guilh
-[28/06/2025 08:49:35] (NORMAL) Teclado com fio: -1  | usuário: guilh
-[28/06/2025 08:49:35] (NORMAL) Teclado com fio: -1  | usuário: guilh
-[28/06/2025 08:49:36] (NORMAL) Teclado com fio: +1  | usuário: guilh
-[28/06/2025 08:49:36] (NORMAL) Teclado com fio: +1  | usuário: guilh
-[28/06/2025 08:49:36] (NORMAL) Teclado com fio: -1  | usuário: guilh
-[28/06/2025 08:49:36] (NORMAL) Teclado com fio: -1  | usuário: guilh
-[30/06/2025 12:20:20] (NORMAL) Toner C8045 Cyan: -1  | usuário: guilherme.salome
+[04/07/2025 09:30:24] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
+[04/07/2025 09:30:24] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
+[04/07/2025 09:30:25] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
+[04/07/2025 09:30:25] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
+[04/07/2025 09:30:25] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
+[04/07/2025 09:30:25] (NORMAL) Bateria 3V Litio: -1  | usuário: guilherme.salome
+[04/07/2025 09:30:26] (NORMAL) Bateria 3V Litio: -1  | usuário: guilherme.salome
+[04/07/2025 09:30:26] (NORMAL) Bateria 3V Litio: -1  | usuário: guilherme.salome
+[04/07/2025 09:30:26] (NORMAL) Bateria 3V Litio: -1  | usuário: guilherme.salome
+[04/07/2025 09:30:33] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
+[04/07/2025 09:30:33] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
+[04/07/2025 09:30:33] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
+[04/07/2025 09:30:34] (NORMAL) Bateria 3V Litio: -1  | usuário: guilherme.salome
+[04/07/2025 09:30:44] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
+[04/07/2025 09:30:45] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
+[04/07/2025 09:30:45] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
+[04/07/2025 09:30:45] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
+[04/07/2025 09:30:46] (NORMAL) Bateria 3V Litio: -1  | usuário: guilherme.salome
+[04/07/2025 09:30:46] (NORMAL) Bateria 3V Litio: -1  | usuário: guilherme.salome
+[04/07/2025 09:32:28] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
+[04/07/2025 09:32:28] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
+[04/07/2025 09:32:29] (NORMAL) Bateria 3V Litio: -1  | usuário: guilherme.salome
+[04/07/2025 09:32:29] (NORMAL) Bateria 3V Litio: -1  | usuário: guilherme.salome
+[04/07/2025 09:32:29] (NORMAL) Bateria 3V Litio: -1  | usuário: guilherme.salome
+[04/07/2025 09:36:58] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
+[04/07/2025 09:36:58] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
+[04/07/2025 09:36:59] (NORMAL) Bateria 3V Litio: -1  | usuário: guilherme.salome
+[04/07/2025 09:37:00] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
+[04/07/2025 09:37:08] [SOLICITAÇÃO] guilherme.salome solicitou: 2/Bateria 3V Litio | 3/Carregador Dell Inspirion
+[04/07/2025 09:45:10] [SOLICITAÇÃO] guilherme.salome solicitou: 5/Carregador Lenovo E14 | 2/Fone
+[04/07/2025 09:50:29] [SOLICITAÇÃO] guilherme.salome solicitou: 3/Bateria 3V Litio | 5/Carregador Lenovo E14 | 6/Kit mouse e teclado
+[04/07/2025 09:52:52] [SOLICITAÇÃO] guilherme.salome solicitou: 3/Bateria 3V Litio | 45/Carregador Lenovo E14 | 5/impressoras
+[04/07/2025 09:54:08] [SOLICITAÇÃO] guilherme.salome solicitou: 2/Memoria RAM DDR5 16GB | 62/Mochila | 5/Monitor 22 Pol | 4/Monitor 24 Pol
+[04/07/2025 09:54:56] [SOLICITAÇÃO] guilherme.salome solicitou: 3/Carregador Lenovo E14 | 4/Fone
+[04/07/2025 10:01:35] [SOLICITAÇÃO] guilherme.salome solicitou: 2/Carregador Dell Inspirion | 5/Carregador Lenovo E14 | 5/Fone | 6/impressoras
+[04/07/2025 10:02:02] (NORMAL) Bateria 3V Litio: -1  | usuário: guilherme.salome
+[04/07/2025 10:09:36] [SOLICITAÇÃO] guilherme.salome solicitou: 1/Bateria 3V Litio
+[04/07/2025 11:25:21] (NORMAL) Bateria 3V Litio: +1  | usuário: guilherme.salome
+[04/07/2025 11:25:22] (NORMAL) Bateria 3V Litio: -1  | usuário: guilherme.salome

@@ -1,0 +1,100 @@
+{
+  "impressoras": [
+    {
+      "modelo": "DesignJet 500+HPGL2 (C7770B)",
+      "numero_serie": "NPIFC525C",
+      "ip": "192.168.1.20",
+      "andar": "17 Plotter",
+      "toners": [
+        "Toner C4913A Cyan",
+        "Toner C4913A Black",
+        "Toner C4913A Magenta",
+        "Toner C4913A Yellow"
+      ]
+    },
+    {
+      "modelo": "Xerox® AltaLink® C8045 Multifunction Printer",
+      "numero_serie": "8TB567604",
+      "ip": "192.168.1.23",
+      "andar": 5,
+      "toners": [
+        "Toner C8045 Cyan",
+        "Toner C8045 Black",
+        "Toner C8045 Magenta",
+        "Toner C8045 Yellow"
+      ]
+    },
+    {
+      "modelo": "Xerox® AltaLink® C8070 Multifunction Printer",
+      "numero_serie": "6TB440773",
+      "ip": "192.168.1.24",
+      "andar": "4 Administrativo",
+      "toners": [
+        "Toner C8045 Cyan",
+        "Toner C8045 Black",
+        "Toner C8045 Magenta",
+        "Toner C8045 Yellow"
+      ]
+    },
+    {
+      "modelo": "Xerox AltaLink C8045 Multifunction Printer",
+      "numero_serie": "8TB635165",
+      "ip": "192.168.1.25",
+      "andar": "4 Comercial",
+      "toners": [
+        "Toner C8045 Cyan",
+        "Toner C8045 Black",
+        "Toner C8045 Magenta",
+        "Toner C8045 Yellow"
+      ]
+    },
+    {
+      "modelo": "VersaLink C405",
+      "numero_serie": "4HX798190",
+      "ip": "192.168.1.26",
+      "andar": "5 DP",
+      "toners": [
+        "Toner C405 Cyan",
+        "Toner C405 Black",
+        "Toner C405 Magenta",
+        "Toner C405 Yellow"
+      ]
+    },
+    {
+      "modelo": "Xerox AltaLink C8045 Multifunction Printer",
+      "numero_serie": "8TB623422",
+      "ip": "192.168.1.27",
+      "andar": 17,
+      "toners": [
+        "Toner C8045 Cyan",
+        "Toner C8045 Black",
+        "Toner C8045 Magenta",
+        "Toner C8045 Yellow"
+      ]
+    },
+    {
+      "modelo": "ECOSYS M5526cdw",
+      "numero_serie": "VE80Z15328",
+      "ip": "192.168.1.28",
+      "andar": 18,
+      "toners": [
+        "Toner TK-5242 Cyan",
+        "Toner TK-5242 Black",
+        "Toner TK-5242 Magenta",
+        "Toner TK-5242 Yellow"
+      ]
+    },
+    {
+      "modelo": "Xerox AltaLink C8045 Multifunction Printer",
+      "numero_serie": "8TB604672",
+      "ip": "192.168.1.29",
+      "andar": 19,
+      "toners": [
+        "Toner C8045 Cyan",
+        "Toner C8045 Black",
+        "Toner C8045 Magenta",
+        "Toner C8045 Yellow"
+      ]
+    }
+  ]
+}
