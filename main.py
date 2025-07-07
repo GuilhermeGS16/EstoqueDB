@@ -11,103 +11,128 @@ import unicodedata
 import time
 import getpass
 import random
+import sys
 
+# Caminhos relativos dos arquivos do projeto
 ARQUIVO_ESTOQUE = "estoque.json"
 ARQUIVO_LOG = "log.txt"
-SENHA_ADMIN = "ad"
 ARQUIVO_REQUISICOES = "requisicoes.json"
+ARQUIVO_IMPRESSORAS = "impressoras.json"
+SENHA_ADMIN = "ad"
+
+# Função de caminho compatível com PyInstaller
+def caminho_recurso(relativo):
+    if hasattr(sys, "_MEIPASS"):
+        return os.path.join(sys._MEIPASS, relativo)
+    return relativo
 
 def normalizar_nome(nome):
     return ''.join(c for c in unicodedata.normalize('NFD', nome.lower()) if unicodedata.category(c) != 'Mn')
     
 def carregar_estoque():
-    if not os.path.exists(ARQUIVO_ESTOQUE):
+    caminho = caminho_recurso(ARQUIVO_ESTOQUE)
+    if not os.path.exists(caminho):
         return {}
-    with open(ARQUIVO_ESTOQUE, "r") as f:
+    with open(caminho, "r", encoding="utf-8") as f:
         return json.load(f)
+    
 def salvar_estoque(estoque):
-    with open(ARQUIVO_ESTOQUE, "w") as f:
+    with open(ARQUIVO_ESTOQUE, "w", encoding="utf-8") as f:
         json.dump(estoque, f, indent=4)
 
 def registrar_log(produto, quantidade, modo):
     agora = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     usuario = getpass.getuser()
     linha = f"[{agora}] ({modo}) {produto}: {'+' if quantidade >= 0 else ''}{quantidade}  | usuário: {usuario}\n"
-    
     with open(ARQUIVO_LOG, "a", encoding="utf-8") as f:
         f.write(linha)
-        
-    
+
 def registrar_log_solicitacao(nome_usuario, itens):
     agora = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     lista = " | ".join(f"{qtd}/{produto}" for produto, qtd in itens.items())
     linha = f"[{agora}] [SOLICITAÇÃO] {nome_usuario} solicitou: {lista}\n"
-
     with open(ARQUIVO_LOG, "a", encoding="utf-8") as f:
         f.write(linha)
         
 def carregar_requisicoes():
-        if os.path.exists("requisicoes.json"):
-            with open("requisicoes.json", "r", encoding="utf-8") as f:
-                return json.load(f)
-        return {}
+    caminho = caminho_recurso(ARQUIVO_REQUISICOES)
+    if os.path.exists(caminho):
+        with open(caminho, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
     
-def registrar_requisicao(produto, quantidade):
-    # Lê o arquivo ou cria vazio
-    if os.path.exists(ARQUIVO_REQUISICOES):
+def registrar_requisicao(produto, qtd):
+    if not os.path.exists(ARQUIVO_REQUISICOES):
+        requisicoes = {}
+    else:
         with open(ARQUIVO_REQUISICOES, "r", encoding="utf-8") as f:
             requisicoes = json.load(f)
-    else:
-        requisicoes = {}
 
-    # Incrementa a quantidade
-    requisicoes[produto] = requisicoes.get(produto, 0) + quantidade
+    if produto not in requisicoes:
+        requisicoes[produto] = {"pendente": 0}
 
-    # Salva o resultado
+    requisicoes[produto]["pendente"] += qtd
+
     with open(ARQUIVO_REQUISICOES, "w", encoding="utf-8") as f:
         json.dump(requisicoes, f, indent=4, ensure_ascii=False)
+        
+def salvar_requisicoes(requisicoes):
+    with open(ARQUIVO_REQUISICOES, "w", encoding="utf-8") as f:
+        json.dump(requisicoes, f, indent=4, ensure_ascii=False)
+
+def salvar_requisicao_json(dados):
+    with open(ARQUIVO_REQUISICOES, "w", encoding="utf-8") as f:
+        json.dump(dados, f, indent=4, ensure_ascii=False)
 
         
 class AppEstoque(ctk.CTk):
     def __init__(self):
         super().__init__()
-        # Carregar dados das impressoras
-        with open("impressoras.json", "r", encoding="utf-8") as f:
+
+        with open(caminho_recurso(ARQUIVO_IMPRESSORAS), "r", encoding="utf-8") as f:
             self.dados_impressoras = json.load(f)
 
-        
-        self.icone_ok = ctk.CTkImage(Image.open("assets/check.png").resize((16, 16)))
-        self.img_moon = ctk.CTkImage(Image.open("assets/moon.png"), size=(24, 24))
-        self.img_sun = ctk.CTkImage(Image.open("assets/sun.png"), size=(24, 24))
-        self.icon_filtro_black = ctk.CTkImage(Image.open("assets/filterblack.png"), size=(20, 20))
-        self.icon_filtro_white = ctk.CTkImage(Image.open("assets/filterwhite.png"), size=(20, 20))
-        self.icone_alerta_amarelo = ctk.CTkImage(Image.open("assets/alert_yellow.png").resize((15,15)))
-        self.icone_alerta_vermelho = ctk.CTkImage(Image.open("assets/alert_red.png").resize((15,15)))
+        self.requisicoes = carregar_requisicoes()
+
+        self.img_receber = ctk.CTkImage(Image.open(caminho_recurso("assets/check2.png")), size=(18, 18))
+        self.botoes_receber = {}
+
+        self.icone_ok = ctk.CTkImage(Image.open(caminho_recurso("assets/check.png")).resize((16, 16)))
+        self.img_moon = ctk.CTkImage(Image.open(caminho_recurso("assets/moon.png")), size=(24, 24))
+        self.img_sun = ctk.CTkImage(Image.open(caminho_recurso("assets/sun.png")), size=(24, 24))
+        self.icon_filtro_black = ctk.CTkImage(Image.open(caminho_recurso("assets/filterblack.png")), size=(20, 20))
+        self.icon_filtro_white = ctk.CTkImage(Image.open(caminho_recurso("assets/filterwhite.png")), size=(20, 20))
+        self.icone_alerta_amarelo = ctk.CTkImage(Image.open(caminho_recurso("assets/alert_yellow.png")).resize((15, 15)))
+        self.icone_alerta_vermelho = ctk.CTkImage(Image.open(caminho_recurso("assets/alert_red.png")).resize((15, 15)))
         self.icones_status = {}
 
         self.title("Controle de Estoque TI")
         self.attributes("-fullscreen", True)
         self.bind("<Escape>", lambda e: self.attributes("-fullscreen", False))
-
         ctk.set_appearance_mode("dark")
+
         self.current_theme = "dark"
         self.toggle_size = 36
         self.toggle_margin = 2
         self.fonte_negrito = ctk.CTkFont(weight="bold")
 
         self.icone_lixeira = ctk.CTkImage(
-            light_image=Image.open("assets/trash.png").resize((15,15)), size=(15,15)
+            light_image=Image.open(caminho_recurso("assets/trash.png")).resize((15, 15)),
+            size=(15, 15)
         )
 
         self.estoque = carregar_estoque()
         self.labels = {}
         self.linhas_produtos = []
         self.labels_requisicao = {}
+        self.btns_receber = {}
+
         self.criar_interface()
         self.lift()
         self.attributes('-topmost', True)
         self.after(100, lambda: self.attributes('-topmost', False))
-        
+    
     def abrir_interface_impressoras(self):
         janela_impressoras = ctk.CTkToplevel(self)
         janela_impressoras.title("Painel de Impressoras")
@@ -120,7 +145,6 @@ class AppEstoque(ctk.CTk):
             frame = ctk.CTkFrame(janela_impressoras)
             frame.pack(pady=10, padx=10, fill="x")
 
-            # Cabeçalho com dados da impressora
             info = (
                 f"{impressora['modelo']} (Andar {impressora['andar']})\n"
                 f"N/S: {impressora['numero_serie']}  |  IP: {impressora['ip']}"
@@ -143,11 +167,9 @@ class AppEstoque(ctk.CTk):
         else:
             novo_icone = self.icone_ok
 
-        # Atualiza o ícone apenas se já existir
         if produto in self.icones_status:
             self.icones_status[produto].configure(image=novo_icone)
 
-        # Atualiza o fundo da linha
         cor_fundo = self.get_cores_fundo(index, qtd, alerta)
         self.linhas_produtos[index].configure(fg_color=cor_fundo)
 
@@ -156,11 +178,10 @@ class AppEstoque(ctk.CTk):
     def distribuir_toners(self, itens_solicitados):
         import random
 
-        distribuido = {}  # {numero_serie: {"modelo":..., "ip":..., "andar":..., "toners":[...]}}
+        distribuido = {} 
         usados = set()
 
         for produto, qtd in itens_solicitados.items():
-            # Encontra impressoras que usam esse toner
             candidatas = [
                 imp for imp in self.dados_impressoras["impressoras"]
                 if produto in imp["toners"]
@@ -193,7 +214,6 @@ class AppEstoque(ctk.CTk):
 
     def carregar_estoque(self):
         ctk.CTkLabel(self.conteudo_principal, text="Tabela de Estoque", font=ctk.CTkFont(size=20, weight="bold")).pack(pady=20)
-        # Aqui você coloca a sua tabela de produtos com as cores e botões
 
     def acao_exemplo(self):
         print("Botão pressionado!")
@@ -221,7 +241,6 @@ class AppEstoque(ctk.CTk):
         
         botoes_frame.pack(pady=10)
 
-        # Botões principais
         for texto, comando, cor in [
             ("Solicitar Produtos", self.abrir_janela_solicitacao, "#70BAC5"),
             ("Adicionar Produto", self.adicionar_produto, "#90BE6D"),
@@ -235,14 +254,13 @@ class AppEstoque(ctk.CTk):
                 font=self.fonte_negrito, corner_radius=8, text_color="white"
             ).pack(side="left", padx=10, pady=10)
 
-        # Botão toggle estilizado com ícone (sol/lua)
         self.btn_toggle_theme = ctk.CTkButton(
             botoes_frame,
             text="",
             width=36,
             height=36,
             corner_radius=18,
-            fg_color="#383A55",  # cor inicial para modo dark
+            fg_color="#383A55", 
             hover_color="#2E3049",
             image=self.img_moon,
             command=self.toggle_theme
@@ -253,15 +271,13 @@ class AppEstoque(ctk.CTk):
         search_frame = ctk.CTkFrame(self)
         search_frame.pack(pady=(0,10))
 
-        # Campo de busca
         self.entry_pesquisa = ctk.CTkEntry(
             search_frame, placeholder_text="Buscar material...", width=300
         )
         self.entry_pesquisa.pack(side="left", padx=(0,5))
         self.entry_pesquisa.bind("<KeyRelease>", lambda e: self.filtrar_produtos())
 
-        # Menu de ordenação
-        self.filtro_ativo = "A-Z"  # valor inicial
+        self.filtro_ativo = "A-Z"
 
         self.btn_filtro = ctk.CTkButton(
         search_frame,
@@ -269,36 +285,42 @@ class AppEstoque(ctk.CTk):
         text="",
         width=40,
         height=36,
-        fg_color=self.aplicar_cor_por_tema("#2c2c2c", "#e0e0e0"),  # invertido aqui
-        hover_color=self.aplicar_cor_por_tema("#1e1e1e", "#d0d0d0"),  # invertido aqui
+        fg_color=self.aplicar_cor_por_tema("#2c2c2c", "#e0e0e0"),
+        hover_color=self.aplicar_cor_por_tema("#1e1e1e", "#d0d0d0"),
         command=self.abrir_menu_filtro
     )
 
         self.btn_filtro.pack(side="left", padx=5)
-        # Área de produtos
-
-        # Cabeçalho (fora do scrollable frame)
         self.cabecalho = ctk.CTkFrame(self, fg_color="transparent")
         self.cabecalho.pack(pady=(5, 0), padx=10, fill="x")
-
         ctk.CTkLabel(self.cabecalho, text="Materiais", font=ctk.CTkFont(size=20, weight="bold"), width=200, anchor="w").pack(side="left", padx=10)
         ctk.CTkLabel(self.cabecalho, text="Quantidade", font=ctk.CTkFont(size=20, weight="bold"), width=40, anchor="w").pack(side="left", padx=5)
-
-        # Agora o scroll começa logo abaixo
         self.produtos_frame = ctk.CTkScrollableFrame(self, width=800, height=600)
         self.produtos_frame.pack(pady=(0, 10), fill="both", expand=True)
-
-        # Linhas de produtos
         self.linhas_produtos.clear()
         produtos_visiveis = [p for p in self.estoque if p != "impressoras"]
         for idx, produto in enumerate(produtos_visiveis):
             linha = self.criar_linha_produto(produto, idx)
             self.linhas_produtos.append(linha)
             
-    
+    def confirmar_recebimento(self, produto):
+        if produto in self.requisicoes and self.requisicoes[produto].get("pendente", 0) > 0:
+            qtd = self.requisicoes[produto]["pendente"]
+            self.estoque[produto]["quantidade"] += qtd
+            salvar_estoque(self.estoque)
+            self.labels[produto].configure(text=str(self.estoque[produto]["quantidade"]))
+            if produto in self.labels_requisicao:
+                self.labels_requisicao[produto].destroy()
+                del self.labels_requisicao[produto]
 
+            if produto in self.botoes_receber:
+                del self.botoes_receber[produto]
 
-    
+            self.requisicoes.pop(produto)
+            salvar_requisicoes(self.requisicoes)
+            registrar_log(produto, qtd, "RECEBIDO")
+            self.produtos_frame.update_idletasks()
+
     def abrir_menu_filtro(self):
         menu = tk.Menu(self, tearoff=0, bg=self.aplicar_cor_por_tema("#FFF7E7", "#212235"), 
                     fg=self.aplicar_cor_por_tema("#000000", "#FFFFFF"),
@@ -314,26 +336,21 @@ class AppEstoque(ctk.CTk):
         menu.tk_popup(x, y)
 
     def ordenar(self, criterio):
-        # Reordena stocks e widgets
         pares = list(zip(self.estoque.items(), self.linhas_produtos))
         if criterio == "A-Z":
             pares.sort(key=lambda x: x[0][0].lower())
         elif criterio == "Z-A":
             pares.sort(key=lambda x: x[0][0].lower(), reverse=True)
-        # Reexibe em ordem
         for (_, _), linha in pares:
             linha.pack_forget()
             linha.pack(pady=1, padx=10, fill="x")
-        # Atualiza listas internas
         self.linhas_produtos = [linha for (_, linha) in pares]
         self.estoque = {nome:qtd for ((nome,qtd), _) in pares}
    
     def get_cores_fundo_dark(self, index):
-        # Cores para modo dark
         return "#2c2c2c" if index % 2 == 0 else "#242424"    
 
     def get_cores_fundo_light(self, index):
-        # Cores para modo light
         return "#f9f9f9" if index % 2 == 0 else "#eaeaea"
 
     def get_cores_fundo(self, index, qtd=None, alerta=None):
@@ -341,6 +358,25 @@ class AppEstoque(ctk.CTk):
             return "#2c2c2c" if index % 2 == 0 else "#242424"
         else:
             return "#e0e0e0" if index % 2 == 0 else "#f5f5f5"
+        
+    def receber_requisicao(self, produto):      
+        if produto in self.requisicoes and self.requisicoes[produto].get("pendente", False):
+            qtd = self.requisicoes[produto]["quantidade"]
+
+            self.estoque[produto]["quantidade"] += qtd
+            salvar_estoque(self.estoque)
+            self.requisicoes.pop(produto)
+            salvar_requisicoes(self.requisicoes)
+            salvar_requisicao_json(self.requisicoes)
+            print("passou")
+            self.labels[produto].configure(text=str(self.estoque[produto]["quantidade"]))
+
+            if produto in self.labels_requisicao:
+                self.labels_requisicao[produto].destroy()
+
+            if produto in self.botoes_receber:
+                self.botoes_receber[produto].destroy()
+                del self.botoes_receber[produto]
 
 
     def criar_linha_produto(self, produto, index):
@@ -351,26 +387,20 @@ class AppEstoque(ctk.CTk):
 
         linha = ctk.CTkFrame(self.produtos_frame, fg_color=cor_fundo)
         linha.pack(pady=1, padx=10, fill="x")
-
-        # Define o ícone de status
         if qtd <= alerta // 2:
             icone = self.icone_alerta_vermelho
         elif qtd <= alerta:
             icone = self.icone_alerta_amarelo
         else:
             icone = self.icone_ok
-
-        # Ícone direto no frame
         icone_label = ctk.CTkLabel(linha, image=icone, text="")
         icone_label.pack(side="left", padx=(10, 10), pady=5)
-        self.icones_status[produto] = icone_label  # Salva para atualizar depois
+        self.icones_status[produto] = icone_label
 
-        # Nome do produto
         ctk.CTkLabel(
             linha, text=produto, font=ctk.CTkFont(size=14, weight="bold"), anchor="w", width=200
         ).pack(side="left", pady=5)
 
-        # Botão de remover
         linha.btn_menos = ctk.CTkButton(
             linha, text="–", width=36, height=36, corner_radius=8,
             command=lambda p=produto: self.alterar(p, -1),
@@ -379,11 +409,9 @@ class AppEstoque(ctk.CTk):
         )
         linha.btn_menos.pack(side="left", padx=5, pady=5)
 
-        # Quantidade
         self.labels[produto] = ctk.CTkLabel(linha, text=str(qtd), width=40, font=self.fonte_negrito)
         self.labels[produto].pack(side="left")
 
-        # Botão de adicionar
         linha.btn_mais = ctk.CTkButton(
             linha, text="+", width=36, height=36, corner_radius=8,
             command=lambda p=produto: self.alterar(p, 1),
@@ -391,8 +419,7 @@ class AppEstoque(ctk.CTk):
             fg_color="#90BE6D", hover_color="#3DDC97", text_color="white"
         )
         linha.btn_mais.pack(side="left", padx=5, pady=5)
-
-        # Botão lixeira
+        
         ctk.CTkButton(
             linha, image=self.icone_lixeira, text="", width=36, height=36, corner_radius=8,
             command=lambda p=produto, l=linha: self.remover_produto(p, l),
@@ -401,16 +428,34 @@ class AppEstoque(ctk.CTk):
         
         self.requisicoes = carregar_requisicoes()
         
-        if produto in self.requisicoes:
+        if produto in self.requisicoes and self.requisicoes[produto].get("pendente"):
+            qtd = self.requisicoes[produto].get("pendente", 0)
+
+            subframe_requisicao = ctk.CTkFrame(linha, fg_color="transparent")
+            subframe_requisicao.pack(side="left", padx=(10, 0))
+            self.labels_requisicao[produto] = subframe_requisicao
+
             label = ctk.CTkLabel(
-                linha, text=f"Solicitado {self.requisicoes[produto]}x",
-                text_color="#EAC449", font=ctk.CTkFont(size=12)
+                subframe_requisicao,
+                text=f"Solicitado {qtd}x",
+                text_color="#EAC449",
+                font=ctk.CTkFont(size=12)
             )
-            label.pack(side="left", padx=(10, 5))
-            self.labels_requisicao[produto] = label
+            label.pack(side="left", padx=(0, 5))
 
-
-
+            btn = ctk.CTkButton(
+                subframe_requisicao,
+                text="",
+                image=self.img_receber,
+                width=24,
+                height=24,
+                fg_color="#EAC449",
+                text_color="black",
+                font=ctk.CTkFont(size=16),
+                command=lambda p=produto: self.confirmar_recebimento(p)
+            )
+            btn.pack(side="left")
+            self.btns_receber[produto] = btn
         return linha
 
     def remover_produto(self, produto, linha_widget):
@@ -434,10 +479,10 @@ class AppEstoque(ctk.CTk):
         salvar_estoque(self.estoque)
         registrar_log(produto, delta, "NORMAL")
 
-        # Atualiza cor da linha
+
         index = list(self.estoque).index(produto)
         alerta = dados["alerta"]
-        linha = self.labels[produto].master  # pega o frame pai do labe
+        linha = self.labels[produto].master
         self.atualizar_status_linha(produto, index)
 
 
@@ -464,7 +509,6 @@ class AppEstoque(ctk.CTk):
                 messagebox.showerror("Erro", "Quantidade e Alerta devem ser números inteiros não negativos!")
                 return
 
-            # Salvar estrutura como dicionário com quantidade + alerta
             self.estoque[nome] = {
                 "quantidade": quantidade,
                 "alerta": alerta
@@ -542,7 +586,6 @@ class AppEstoque(ctk.CTk):
         entradas_nome = {}
         entradas_alerta = {}
 
-        # Área com rolagem
         scroll_area = ctk.CTkScrollableFrame(janela_admin, width=580, height=750)
         scroll_area.pack(padx=10, pady=(10, 0), fill="both", expand=True)
 
@@ -555,25 +598,21 @@ class AppEstoque(ctk.CTk):
             frame = ctk.CTkFrame(scroll_area)
             frame.pack(pady=5, padx=10, fill="x")
 
-            # Campo nome
             entry_nome = ctk.CTkEntry(frame, width=180)
             entry_nome.insert(0, produto)
             entry_nome.pack(side="left", padx=5)
             entradas_nome[produto] = entry_nome
 
-            # Campo quantidade
+
             entry_qtd = ctk.CTkEntry(frame, width=60)
             entry_qtd.insert(0, str(dados["quantidade"]))
             entry_qtd.pack(side="left", padx=5)
             entradas_qtd[produto] = entry_qtd
 
-            # Campo alerta
             entry_alerta = ctk.CTkEntry(frame, width=60)
             entry_alerta.insert(0, str(dados["alerta"]))
             entry_alerta.pack(side="left", padx=5)
             entradas_alerta[produto] = entry_alerta
-
-        # Função salvar
         def salvar_todos():
             novo_estoque = {}
             nomes_novos = set()
@@ -613,7 +652,6 @@ class AppEstoque(ctk.CTk):
                     if delta != 0:
                         registrar_log(nome_novo, delta, "ADMIN")
 
-            # Mantém dados das impressoras, se houver
             if "impressoras" in self.estoque:
                 novo_estoque["impressoras"] = self.estoque["impressoras"]
 
@@ -623,7 +661,6 @@ class AppEstoque(ctk.CTk):
             janela_admin.destroy()
 
 
-        # Botão de salvar (fora do scroll)
         btn_salvar = ctk.CTkButton(
             janela_admin,
             text="Salvar alterações",
@@ -673,7 +710,6 @@ class AppEstoque(ctk.CTk):
         texto.pack(pady=10, padx=10)
         texto.configure(state="normal")
 
-        # Ler e destacar conteúdo do log
         with open(ARQUIVO_LOG, "r", encoding="utf-8") as f:
             linhas = f.readlines()
             for i, linha in enumerate(linhas):
@@ -681,9 +717,13 @@ class AppEstoque(ctk.CTk):
                 texto.insert(linha_index, linha)
                 if "[SOLICITAÇÃO]" in linha:
                     texto.tag_add("solicitacao", linha_index, f"{i+1}.end")
+                elif "(RECEBIDO)" in linha:
+                    texto.tag_add("recebido", linha_index, f"{i+1}.end")
+                    texto.tag_config("recebido", foreground="#F04C60")
 
-        # Estilo da tag de solicitação
-        texto.tag_config("solicitacao", foreground="#FCEC52")  # Amarelo
+
+
+        texto.tag_config("solicitacao", foreground="#FCEC52") 
 
         texto.configure(state="disabled")
         janela_log.lift()
@@ -710,14 +750,12 @@ class AppEstoque(ctk.CTk):
                 hover_color="#2E3049"
             )
 
-        # Atualizar botão de filtro
         self.btn_filtro.configure(
             fg_color=self.aplicar_cor_por_tema("#2c2c2c", "#e0e0e0"),
             hover_color=self.aplicar_cor_por_tema("#1e1e1e", "#d0d0d0"),
             image=self.icon_filtro_black if self.current_theme == "light" else self.icon_filtro_white
         )
 
-        # Atualizar linhas da lista
         visiveis = [p for p in self.estoque if p != "impressoras"]
         for idx, produto in enumerate(visiveis):
             linha = self.linhas_produtos[idx]
@@ -726,8 +764,7 @@ class AppEstoque(ctk.CTk):
             alerta = dados["alerta"]
             cor = self.get_cores_fundo(idx, qtd, alerta)
             linha.configure(fg_color=cor)
-
-            # Atualizar botões de + e –
+            
             if hasattr(linha, "btn_mais") and hasattr(linha, "btn_menos"):
                 if self.current_theme == "dark":
                     linha.btn_mais.configure(fg_color="#90BE6D", hover_color="#3DDC97")
@@ -758,8 +795,7 @@ class AppEstoque(ctk.CTk):
         entradas = {}
 
         ctk.CTkLabel(janela, text="Preencha as quantidades desejadas:", font=self.fonte_negrito).pack(pady=10)
-
-        # Frame com scroll
+        
         scroll_frame = ctk.CTkScrollableFrame(janela, width=480, height=700)
         scroll_frame.pack(padx=10, pady=5, fill="both", expand=True)
 
@@ -772,26 +808,11 @@ class AppEstoque(ctk.CTk):
             entry.pack(side="left")
             entradas[produto] = entry
 
-        # Botão Toners
         ctk.CTkButton(
             janela, text="Solicitar Toners (MR Copiadoras)", command=lambda: enviar_email_toner(entradas),
             fg_color="#F04C60", corner_radius=30
         ).pack(pady=10)
         
-        def salvar_requisicao(produto, mensagem):
-            if not os.path.exists(ARQUIVO_REQUISICOES):
-                requisicoes = {}
-            else:
-                with open(ARQUIVO_REQUISICOES, "r", encoding="utf-8") as f:
-                    requisicoes = json.load(f)
-
-            if produto not in requisicoes:
-                requisicoes[produto] = []
-            requisicoes[produto].append(mensagem)
-
-            with open(ARQUIVO_REQUISICOES, "w", encoding="utf-8") as f:
-                json.dump(requisicoes, f, indent=4, ensure_ascii=False)
-
         def confirmar_envio():
             itens_solicitados = {}
             for produto, entrada in entradas.items():
@@ -808,34 +829,51 @@ class AppEstoque(ctk.CTk):
                 messagebox.showwarning("Aviso", "Nenhum item foi solicitado.")
                 return
 
-            # Envia e registra a requisição
             self.enviar_email_solicitacao(itens_solicitados)
             usuario = getpass.getuser()
             registrar_log_solicitacao(usuario, itens_solicitados)
 
-            # Registra no JSON de requisições e atualiza interface
             for produto, qtd in itens_solicitados.items():
                 registrar_requisicao(produto, qtd)
+                self.requisicoes = carregar_requisicoes()
 
-                # Atualiza texto amarelo na interface
+                qtd_requisitada = self.requisicoes.get(produto, {}).get("pendente", 0)
+
                 if produto in self.labels_requisicao:
-                    self.labels_requisicao[produto].configure(text=f"Solicitado {self.requisicoes.get(produto, qtd)}x")
+                    for widget in self.labels_requisicao[produto].winfo_children():
+                        if isinstance(widget, ctk.CTkLabel):
+                            widget.configure(text=f"Solicitado {qtd_requisitada}x")
                 else:
+                    subframe = ctk.CTkFrame(self.labels[produto].master, fg_color="transparent")
+                    subframe.pack(side="left", padx=(10, 0))
+                    self.labels_requisicao[produto] = subframe
+
                     label = ctk.CTkLabel(
-                        self.labels[produto].master,
-                        text=f"Solicitado {self.requisicoes.get(produto, qtd)}x",
+                        subframe,
+                        text=f"Solicitado {qtd_requisitada}x",
                         text_color="#EAC449",
                         font=ctk.CTkFont(size=12)
                     )
-                    label.pack(side="left", padx=(10, 5))
-                    self.labels_requisicao[produto] = label
+                    label.pack(side="left", padx=(0, 5))
 
-            # Fecha a janela
+                    btn = ctk.CTkButton(
+                        subframe,
+                        text="",
+                        image=self.img_receber,
+                        width=24,
+                        height=24,
+                        fg_color="#EAC449",
+                        text_color="black",
+                        font=ctk.CTkFont(size=16),
+                        command=lambda p=produto: self.confirmar_recebimento(p)
+                    )
+                    btn.pack(side="left")
+
+                    self.btns_receber[produto] = btn
+
             janela.destroy()
 
 
-
-        # Botão de Envio Normal
         ctk.CTkButton(
             janela, text="Enviar Solicitação", command=confirmar_envio,
             fg_color="#3B8ED0", corner_radius=30
@@ -871,7 +909,6 @@ class AppEstoque(ctk.CTk):
             usuario = getpass.getuser()
             corpo += f"Att,\n{usuario}"
 
-            # Codifica o corpo e assunto para mailto
             corpo_url = urllib.parse.quote(corpo)
             assunto_url = urllib.parse.quote(assunto)
 

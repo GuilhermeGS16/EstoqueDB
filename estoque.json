@@ -1,50 +1,50 @@
 {
     "Bateria 3V Litio": {
-        "quantidade": 5,
+        "quantidade": 12,
         "alerta": 5
     },
     "Carregador Dell Inspirion": {
-        "quantidade": 2,
+        "quantidade": 10,
         "alerta": 1
     },
     "Carregador Lenovo E14": {
-        "quantidade": 0,
+        "quantidade": 11,
         "alerta": 2
     },
     "Fone": {
-        "quantidade": 10,
+        "quantidade": 14,
         "alerta": 10
     },
     "Kit mouse e teclado": {
-        "quantidade": 10,
+        "quantidade": 20,
         "alerta": 10
     },
     "Memoria RAM DDR5 16GB": {
-        "quantidade": 5,
+        "quantidade": 10,
         "alerta": 2
     },
     "Mochila": {
-        "quantidade": 12,
+        "quantidade": 14,
         "alerta": 10
     },
     "Monitor 22 Pol": {
-        "quantidade": 0,
+        "quantidade": 3,
         "alerta": 1
     },
     "Monitor 24 Pol": {
-        "quantidade": 0,
+        "quantidade": 4,
         "alerta": 1
     },
     "Mouse com fio": {
-        "quantidade": 10,
+        "quantidade": 12,
         "alerta": 6
     },
     "Mouse sem fio": {
-        "quantidade": 45,
+        "quantidade": 47,
         "alerta": 4
     },
     "Suporte de monitor": {
-        "quantidade": 0,
+        "quantidade": 1,
         "alerta": 8
     },
     "Suporte de notebook": {
@@ -60,11 +60,11 @@
         "alerta": 2
     },
     "Telefone Yealink": {
-        "quantidade": 80,
+        "quantidade": 86,
         "alerta": 10
     },
     "Toner 131A Black": {
-        "quantidade": 3,
+        "quantidade": 4,
         "alerta": 1
     },
     "Toner 131A Cyan": {

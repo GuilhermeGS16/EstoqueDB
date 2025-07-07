@@ -1,7 +1,7 @@
 {
   "impressoras": [
     {
-      "modelo": "DesignJet 500+HPGL2 (C7770B)",
+      "modelo": "DesignJet 500+HPGL2 (C7770B) - Toner C4913A",
       "numero_serie": "NPIFC525C",
       "ip": "192.168.1.20",
       "andar": "17 Plotter",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "modelo": "Xerox® AltaLink® C8045 Multifunction Printer",
+      "modelo": "Xerox® AltaLink® C8045 Multifunction Printer - Toner C8045",
       "numero_serie": "8TB567604",
       "ip": "192.168.1.23",
       "andar": 5,
@@ -25,7 +25,7 @@
       ]
     },
     {
-      "modelo": "Xerox® AltaLink® C8070 Multifunction Printer",
+      "modelo": "Xerox® AltaLink® C8070 Multifunction Printer - Toner C8045",
       "numero_serie": "6TB440773",
       "ip": "192.168.1.24",
       "andar": "4 Administrativo",
@@ -37,7 +37,7 @@
       ]
     },
     {
-      "modelo": "Xerox AltaLink C8045 Multifunction Printer",
+      "modelo": "Xerox AltaLink C8045 Multifunction Printer - Toner C8045",
       "numero_serie": "8TB635165",
       "ip": "192.168.1.25",
       "andar": "4 Comercial",
@@ -49,7 +49,7 @@
       ]
     },
     {
-      "modelo": "VersaLink C405",
+      "modelo": "VersaLink C405 - Toner C405",
       "numero_serie": "4HX798190",
       "ip": "192.168.1.26",
       "andar": "5 DP",
@@ -61,7 +61,7 @@
       ]
     },
     {
-      "modelo": "Xerox AltaLink C8045 Multifunction Printer",
+      "modelo": "Xerox AltaLink C8045 Multifunction Printer - Toner C8045",
       "numero_serie": "8TB623422",
       "ip": "192.168.1.27",
       "andar": 17,
@@ -73,7 +73,7 @@
       ]
     },
     {
-      "modelo": "ECOSYS M5526cdw",
+      "modelo": "ECOSYS M5526cdw - Toner TK-5242",
       "numero_serie": "VE80Z15328",
       "ip": "192.168.1.28",
       "andar": 18,
@@ -85,7 +85,7 @@
       ]
     },
     {
-      "modelo": "Xerox AltaLink C8045 Multifunction Printer",
+      "modelo": "Xerox AltaLink C8045 Multifunction Printer - Toner C8045",
       "numero_serie": "8TB604672",
       "ip": "192.168.1.29",
       "andar": 19,
