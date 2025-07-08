@@ -132,6 +132,35 @@ class AppEstoque(ctk.CTk):
         self.lift()
         self.attributes('-topmost', True)
         self.after(100, lambda: self.attributes('-topmost', False))
+
+        self.painel_flutuante = ctk.CTkFrame(
+            self,
+            width=350,
+            height=600,
+            corner_radius=16,
+            fg_color="#1e1e1e"
+        )
+        self.painel_flutuante.place(relx=1.0, rely=0.5, anchor="e", x=-10)
+
+        # Título do painel
+        ctk.CTkLabel(
+            self.painel_flutuante, text="Painel de Controle",
+            font=ctk.CTkFont(size=18, weight="bold")
+        ).pack(pady=(15, 10))
+
+        # Resumo
+        ctk.CTkLabel(self.painel_flutuante, text="Resumo de Estoque:", anchor="w").pack(fill="x", padx=15)
+        self.resumo_info = ctk.CTkLabel(
+            self.painel_flutuante,
+            text="- Total: 0\n- Críticos: 0",
+            anchor="w", justify="left"
+        )
+        self.resumo_info.pack(fill="x", padx=15, pady=(0, 15))
+
+        # Botões rápidos
+        ctk.CTkButton(self.painel_flutuante, text="+ Adicionar Produto", command=self.adicionar_produto).pack(fill="x", padx=15, pady=(0, 5))
+        ctk.CTkButton(self.painel_flutuante, text="Exportar CSV").pack(fill="x", padx=15, pady=(0, 5))
+
     
     def abrir_interface_impressoras(self):
         janela_impressoras = ctk.CTkToplevel(self)

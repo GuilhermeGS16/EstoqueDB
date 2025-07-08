@@ -1,15 +1,15 @@
 {
     "Bateria 3V Litio": {
-        "quantidade": 12,
+        "quantidade": 0,
         "alerta": 5
     },
     "Carregador Dell Inspirion": {
-        "quantidade": 10,
+        "quantidade": 0,
         "alerta": 1
     },
     "Carregador Lenovo E14": {
-        "quantidade": 11,
-        "alerta": 2
+        "quantidade": 0,
+        "alerta": 1
     },
     "Fone": {
         "quantidade": 14,
@@ -20,20 +20,20 @@
         "alerta": 10
     },
     "Memoria RAM DDR5 16GB": {
-        "quantidade": 10,
-        "alerta": 2
+        "quantidade": 2,
+        "alerta": 1
     },
     "Mochila": {
         "quantidade": 14,
         "alerta": 10
     },
     "Monitor 22 Pol": {
-        "quantidade": 3,
-        "alerta": 1
+        "quantidade": 4,
+        "alerta": 2
     },
     "Monitor 24 Pol": {
-        "quantidade": 4,
-        "alerta": 1
+        "quantidade": 2,
+        "alerta": 2
     },
     "Mouse com fio": {
         "quantidade": 12,
@@ -49,7 +49,7 @@
     },
     "Suporte de notebook": {
         "quantidade": 0,
-        "alerta": 6
+        "alerta": 8
     },
     "Teclado com fio": {
         "quantidade": 1,
